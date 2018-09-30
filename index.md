@@ -9,186 +9,178 @@
 > * 第三部分为应用层，如何知道app的传输流量是什么加密并如何解密，得到服务接口如何利用，除了http协议之外的协议如何拦截并重放等！
 
 
-![cmd-markdown-logo](https://www.zybuluo.com/static/img/logo.png)
+![cmd-markdown-logo](http://thyrsi.com/t6/378/1538285208x-1566661319.jpg)
 
 
-除了您现在看到的这个 Cmd Markdown 在线版本，您还可以前往以下网址下载：
 
-### [Windows/Mac/Linux 全平台客户端](https://www.zybuluo.com/cmd/)
+测试环境：安卓版本手机或者安卓模拟器、burp、drozer、apktool等：
 
-> 请保留此份 Cmd Markdown 的欢迎稿兼使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file"></i> **新文稿** 或者使用快捷键 `Ctrl+Alt+N`。
 
-------
-
-## 什么是 Markdown
-
-Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，**粗体** 或者 *斜体* 某些文字，更棒的是，它还可以
-
-### 1. 制作一份待办事宜 [Todo 列表](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表)
-
-- [ ] 支持以 PDF 格式导出文稿
-- [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
-- [x] 新增 Todo 列表功能
-- [x] 修复 LaTex 公式渲染问题
-- [x] 新增 LaTex 公式编号功能
-
-### 2. 书写一个质能守恒公式[^LaTeX]
-
-$$E=mc^2$$
-
-### 3. 高亮一段代码[^code]
-
-```python
-@requires_authorization
-class SomeClass:
-    pass
-
-if __name__ == '__main__':
-    # A comment
-    print 'hello world'
-```
-
-### 4. 高效绘制 [流程图](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#7-流程图)
-
-```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-```
-
-### 5. 高效绘制 [序列图](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#8-序列图)
-
-```seq
-Alice->Bob: Hello Bob, how are you?
-Note right of Bob: Bob thinks
-Bob-->Alice: I am good thanks!
-```
-
-### 6. 高效绘制 [甘特图](https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#9-甘特图)
-
-```gantt
-    title 项目开发流程
-    section 项目确定
-        需求分析       :a1, 2016-06-22, 3d
-        可行性报告     :after a1, 5d
-        概念验证       : 5d
-    section 项目实施
-        概要设计      :2016-07-05  , 5d
-        详细设计      :2016-07-08, 10d
-        编码          :2016-07-15, 10d
-        测试          :2016-07-22, 5d
-    section 发布验收
-        发布: 2d
-        验收: 3d
-```
-
-### 7. 绘制表格
-
-| 项目        | 价格   |  数量  |
-| --------   | -----:  | :----:  |
-| 计算机     | \$1600 |   5     |
-| 手机        |   \$12   |   12   |
-| 管线        |    \$1    |  234  |
-
-### 8. 更详细语法说明
-
-想要查看更详细的语法说明，可以参考我们准备的 [Cmd Markdown 简明语法手册][1]，进阶用户可以参考 [Cmd Markdown 高阶语法手册][2] 了解更多高级功能。
-
-总而言之，不同于其它 *所见即所得* 的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。**Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。** 目前它已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。
-
----
-
-## 什么是 Cmd Markdown
-
-您可以使用很多工具书写 Markdown，但是 Cmd Markdown 是这个星球上我们已知的、最好的 Markdown 工具——没有之一 ：）因为深信文字的力量，所以我们和你一样，对流畅书写，分享思想和知识，以及阅读体验有极致的追求，我们把对于这些诉求的回应整合在 Cmd Markdown，并且一次，两次，三次，乃至无数次地提升这个工具的体验，最终将它演化成一个 **编辑/发布/阅读** Markdown 的在线平台——您可以在任何地方，任何系统/设备上管理这里的文字。
-
-### 1. 实时同步预览
-
-我们将 Cmd Markdown 的主界面一分为二，左边为**编辑区**，右边为**预览区**，在编辑区的操作会实时地渲染到预览区方便查看最终的版面效果，并且如果你在其中一个区拖动滚动条，我们有一个巧妙的算法把另一个区的滚动条同步到等价的位置，超酷！
-
-### 2. 编辑工具栏
-
-也许您还是一个 Markdown 语法的新手，在您完全熟悉它之前，我们在 **编辑区** 的顶部放置了一个如下图所示的工具栏，您可以使用鼠标在工具栏上调整格式，不过我们仍旧鼓励你使用键盘标记格式，提高书写的流畅度。
-
-![tool-editor](https://www.zybuluo.com/static/img/toolbar-editor.png)
-
-### 3. 编辑模式
-
-完全心无旁骛的方式编辑文字：点击 **编辑工具栏** 最右侧的拉伸按钮或者按下 `Ctrl + M`，将 Cmd Markdown 切换到独立的编辑模式，这是一个极度简洁的写作环境，所有可能会引起分心的元素都已经被挪除，超清爽！
-
-### 4. 实时的云端文稿
-
-为了保障数据安全，Cmd Markdown 会将您每一次击键的内容保存至云端，同时在 **编辑工具栏** 的最右侧提示 `已保存` 的字样。无需担心浏览器崩溃，机器掉电或者地震，海啸——在编辑的过程中随时关闭浏览器或者机器，下一次回到 Cmd Markdown 的时候继续写作。
-
-### 5. 离线模式
-
-在网络环境不稳定的情况下记录文字一样很安全！在您写作的时候，如果电脑突然失去网络连接，Cmd Markdown 会智能切换至离线模式，将您后续键入的文字保存在本地，直到网络恢复再将他们传送至云端，即使在网络恢复前关闭浏览器或者电脑，一样没有问题，等到下次开启 Cmd Markdown 的时候，她会提醒您将离线保存的文字传送至云端。简而言之，我们尽最大的努力保障您文字的安全。
-
-### 6. 管理工具栏
-
-为了便于管理您的文稿，在 **预览区** 的顶部放置了如下所示的 **管理工具栏**：
-
-![tool-manager](https://www.zybuluo.com/static/img/toolbar-manager.jpg)
-
-通过管理工具栏可以：
-
-<i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享
-<i class="icon-file"></i> 新建：开始撰写一篇新的文稿
-<i class="icon-trash"></i> 删除：删除当前的文稿
-<i class="icon-cloud"></i> 导出：将当前的文稿转化为 Markdown 文本或者 Html 格式，并导出到本地
-<i class="icon-reorder"></i> 列表：所有新增和过往的文稿都可以在这里查看、操作
-<i class="icon-pencil"></i> 模式：切换 普通/Vim/Emacs 编辑模式
-
-### 7. 阅读工具栏
-
-![tool-manager](https://www.zybuluo.com/static/img/toolbar-reader.jpg)
-
-通过 **预览区** 右上角的 **阅读工具栏**，可以查看当前文稿的目录并增强阅读体验。
-
-工具栏上的五个图标依次为：
-
-<i class="icon-list"></i> 目录：快速导航当前文稿的目录结构以跳转到感兴趣的段落
-<i class="icon-chevron-sign-left"></i> 视图：互换左边编辑区和右边预览区的位置
-<i class="icon-adjust"></i> 主题：内置了黑白两种模式的主题，试试 **黑色主题**，超炫！
-<i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验
-<i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境
-
-### 8. 阅读模式
-
-在 **阅读工具栏** 点击 <i class="icon-desktop"></i> 或者按下 `Ctrl+Alt+M` 随即进入独立的阅读模式界面，我们在版面渲染上的每一个细节：字体，字号，行间距，前背景色都倾注了大量的时间，努力提升阅读的体验和品质。
-
-### 9. 标签、分类和搜索
-
-在编辑区任意行首位置输入以下格式的文字可以标签当前文档：
-
-标签： 未分类
-
-标签以后的文稿在【文件列表】（Ctrl+Alt+F）里会按照标签分类，用户可以同时使用键盘或者鼠标浏览查看，或者在【文件列表】的搜索文本框内搜索标题关键字过滤文稿，如下图所示：
-
-![file-list](https://www.zybuluo.com/static/img/file-list.png)
-
-### 10. 文稿发布和分享
-
-在您使用 Cmd Markdown 记录，创作，整理，阅读文稿的同时，我们不仅希望它是一个有力的工具，更希望您的思想和知识通过这个平台，连同优质的阅读体验，将他们分享给有相同志趣的人，进而鼓励更多的人来到这里记录分享他们的思想和知识，尝试点击 <i class="icon-share"></i> (Ctrl+Alt+P) 发布这份文档给好友吧！
+> 组件代码层：  对于这一块的测试方法可以使用apktool对APK进行反编译或者drozer进行自动化测试
 
 ------
 
-再一次感谢您花费时间阅读这份欢迎稿，点击 <i class="icon-file"></i> (Ctrl+Alt+N) 开始撰写新的文稿吧！祝您在这里记录、阅读、分享愉快！
+## APKTOOL使用：
 
-作者 [@ghosert][3]     
-2016 年 07月 07日    
+对于其他的逆向挖漏洞本人菜鸡不会，只会拿源码找一下敏感地址或者账号信息在利用。
 
-[^LaTeX]: 支持 **LaTeX** 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 [MathJax][4] 参考更多使用方法。
+使用命令apktool d 1.apk  即可对1.apk进行反编译，如果编译出错（app有保护机制）前提是没混淆过的加密算法encrypt、hash之内的单词
+![1][1]
 
-[^code]: 代码高亮功能支持包括 Java, Python, JavaScript 在内的，**四十一**种主流编程语言。
 
-[1]: https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown
-[2]: https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-高阶语法手册
-[3]: http://weibo.com/ghosert
-[4]: http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
+ 编译完成后会在桌面出现一个以app命名的文件夹
+ 或者直接使用其他工具把app内的字符，url直接拽出来如（http，www，com，cn，.action等关键字）
+如图对京东某app进行测试
+![11][2]
 
+
+![3][3]
+
+
+  通过上述方法获取到url或者敏感信息后可以深入利用，具体怎么利用各位大佬应该都知道，如果在加入自动化神器的话对挖src的效率会更大的提升。
+；如某东app泄露的一个IP，打开之后是一个子系统管理，这个地址如果去通过子域名ip探测C段是获取不到的.
+
+##Drozer使用：
+这个工具就叼了，和walk大佬说了一下，就直接扔了一个drozer的使用文档过来
+写一下操作步骤吧：
+首先如果使用手机操作的话，电脑要有adb，用模拟器的话就不用去安装adb了因为大部分的模拟器都是自带adb的！（演示的是使用夜神模拟器操作）
+Drozer这个工具各位大佬可以自行去下载
+打开模拟器后安装drozer的Agent代理
+![4][4]
+
+
+  A．	打开夜神自带的adb然后执行命令（adb devices）查看一下设备有没有列出来
+  ![5][5]
+
+
+![6][6]
+
+
+  可以看到咱们的设备已经准备就绪了随时准备开干
+B．	不过咱们这次是讲的第一部分所以不讲如何在adb里面玩，第二步就是转发一下端口好让drozer连接上命令如下：adb.exe forward tcp:31415 tcp:31415
+![7][7]
+
+
+  执行后就可以了
+
+补充：
+报10061报错    这个时候，看下手机是不是被其他管理软件连接了，把管理软件退出。   然后重新输入转发命令fcp。则可以解决
+报10054错误  这个错误很好解决，在手机端，把agent关闭，重新打开，则可以解决
+
+C.这是最后一步了，在drozer的目录直接输入命令drozer console connect进入它的控制台
+![8][8]
+
+
+  完美，这样就可以一顿操作猛如虎了
+
+上述已经说了如何进入drozer了，那面就看看如何扫描组件代码层的问题的
+我们要对某个APP进行漏洞检测的话需要确定它是什么名字，那么就用到下面的命令了
+run app.package.list（列出所有的app）ps：想不让它乱码就用linux系统操作
+![9][9]
+
+
+  大家可以看到我上述标记的app名称，它就是要做测试的app，文件名:jakhar.aseem.diva，大家一定要用前面的当作命名，不要拿()内的Diva当作app的名字
+
+一般要对某个app进行漏洞挖掘的话首先咱们要知道这个app的一些信息，那么就用下面的命令查看一下它的信息：run app.package.info -a jakhar.aseem.diva  可以看到-a后面指定的这个就是咱们上一步要测试的app
+![10][10]
+
+
+  通过上述可以看到版本信息，数据存储的目录，用户ID,组ID,是否有共享库，还有权限信息等
+
+扫描可以访问content provider的URI（数据泄露）
+命令：run scanner.provider.finduris -a APP
+![11][11]
+
+
+  通过上述图片可以看到app有泄露，但是是否存在敏感信息还需要进去kank 
+run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Keys
+![12][12]
+
+
+  但当将路径变换为Keys/时,则不会检查路径，可顺利查询数据
+  ![13][13]
+
+
+  PS: 在发现这种问题的时候首先要确定泄露的信息是否属于可公开的如安装插件信息等，不涉及到用户的敏感数据，如果是公开的就不要提交到src了。
+由于drozer工具能做的事比较多，所以这一部分不能在drozer
+上面浪费太多时间，在举例一个sql注入的例子，下一章在讲drozer实战app漏洞挖掘
+说到sql了还是安卓的那就先上一波理论：
+Android操作系统建议使用SQLite数据库存储用户数据。SQLite数据库使用SQL语句，所以可以进行SQL注入。 使用projection参数和seleciton参数可以传递一些简单的SQL注入语句到Content provider。
+如： ![14][14]
+
+
+  看完上述的理论之后那就知道安卓的sql和web没啥区别，那就直接上drozer工具扫描注入的命令：
+run scanner.provider.injection  -a APP
+![15][15]
+
+
+  run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --projection "'" 
+  ![16][16]
+
+
+  run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --selection "'" 
+  ![17][17]
+
+
+  run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --projection "* FROM SQLITE_MASTER WHERE type='table'--" 
+  ![18][18]
+
+
+  这样就可以看到数据库之类的了，那么下面咱在看一下如何在web下进行sql注入
+
+首先在drozer内开启一下web服务：
+run auxiliary.webcontentresolver
+![19][19]
+
+
+  可以看到端口是8080，如果出错的话就杀一下8080端口的进程
+  ![20][20]
+
+
+  找到目标app，然后访问，发现无法访问是因为做了模式匹配，所以Permission Denial
+  ![21][21]
+
+
+  http://127.0.0.1:8080/query?uri=content://com.mwr.example.sieve.DBContentProvider/Keys/&projection=* 
+  ![22][22]
+
+
+  如果感觉手工比较繁琐的话那就直接上sqlmap
+  ![23][23]
+
+
+  到这里drozer本章就介绍这么多了，另外如果感觉使用检查sql注入的命令
+run scanner.provider.injection -a app
+效率太慢，不想只检查一个app，那么你可以直接在窗口输入
+run scanner.provider.injection
+这样他就会检查你手机内所有app是否存在sql漏洞，其他漏洞批量检查也是一样的方法
+![24][24]
+
+
+  [1]: http://thyrsi.com/t6/378/1538285347x-1404792622.png
+  [2]: http://thyrsi.com/t6/378/1538285450x-1404729662.png
+  [3]: http://thyrsi.com/t6/378/1538285486x-1404729662.png
+  [4]: http://thyrsi.com/t6/378/1538285560x-1566661349.png
+  [5]: http://thyrsi.com/t6/378/1538285596x-1404792622.png
+  [6]: http://thyrsi.com/t6/378/1538285624x-1404792253.png
+  [7]: http://thyrsi.com/t6/378/1538285661x-1566661193.png
+  [8]: http://thyrsi.com/t6/378/1538285704x-1566661319.png
+  [9]: http://thyrsi.com/t6/378/1538285747x-1404729656.png
+  [10]: http://thyrsi.com/t6/378/1538285788x-1566661157.png
+  [11]: http://thyrsi.com/t6/378/1538285829x-1566661349.png
+  [12]: http://thyrsi.com/t6/378/1538285867x-1566661193.png
+  [13]: http://thyrsi.com/t6/378/1538285904x-1566660906.png
+  [14]: http://thyrsi.com/t6/378/1538285939x-1404792730.png
+  [15]: http://thyrsi.com/t6/378/1538285976x-1404729710.png
+  [16]: http://thyrsi.com/t6/378/1538286010x-1566660906.png
+  [17]: http://thyrsi.com/t6/378/1538286043x-1404792730.png
+  [18]: http://thyrsi.com/t6/378/1538286076x-1566661026.png
+  [19]: http://thyrsi.com/t6/378/1538286111x-1404729656.png
+  [20]: http://thyrsi.com/t6/378/1538286143x-1566661319.png
+  [21]: http://thyrsi.com/t6/378/1538286185x-1566660906.png
+  [22]: http://thyrsi.com/t6/378/1538286218x-1566661319.png
+  [23]: http://thyrsi.com/t6/378/1538286249x-1404792622.png
+  [24]: http://thyrsi.com/t6/378/1538286283x-1404792658.png
+  我在放一个drozer 的常用命令介绍地址，大家可以进去看一下drozer的其他命令，https://www.cnblogs.com/goodhacker/p/3906180.html
+第一部分工具篇完毕；  （敬请期待第二部分）
+第二部分为组件代码层，如何找到客户端程序安全、敏感信息安全、密码安全、密码策略设置、进程保护、通信安全等等的安全漏洞问题！！！
