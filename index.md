@@ -25,6 +25,7 @@
 >对于其他的逆向挖漏洞本人菜鸡不会，只会拿源码找一下敏感地址或者账号信息在利用。
 
 **使用命令apktool d 1.apk  即可对1.apk进行反编译，如果编译出错（app有保护机制）前提是没混淆过的加密算法encrypt、hash之内的单词**
+
 ![1][1]
 
 
@@ -33,8 +34,8 @@
 > 编译完成后会在桌面出现一个以app命名的文件夹或者直接使用其他工具把app内的字符，url直接拽出来如（http，www，com，cn，.action等关键字）
 
 **如图对京东某app进行测试**
-![11][2]
 
+![11][2]
 
 ![3][3]
 
@@ -51,14 +52,14 @@
 ##Drozer使用：
 >这个工具就叼了，和walk黑客大佬说了一下，就直接扔了一个drozer文档过来
 
- - 写一下操作步骤吧：
+- 写一下操作步骤吧：
 
 **首先如果使用手机操作的话，电脑要有adb，用模拟器的话就不用去安装adb了因为大部分的模拟器都是自带adb的！（演示的是使用夜神模拟器操作）**
 
 Drozer
 ------
 
- - 这个工具各位大佬可以自行去下载 打开模拟器后安装drozer的Agent代理
+- 这个工具各位大佬可以自行去下载 打开模拟器后安装drozer的Agent代理
 
 ![4][4]
 
@@ -114,17 +115,20 @@ Drozer
 
 >  通过上述可以看到版本信息，数据存储的目录，用户ID,组ID,是否有共享库，还有权限信息等
 
- - 扫描可以访问content provider的URI（数据泄露）
+- 扫描可以访问content provider的URI（数据泄露）
 
 > 命令：run scanner.provider.finduris -a APP
 
 ![11][11]
+
 **通过上述图片可以看到app有泄露，但是是否存在敏感信息还需要进去看看** 
 
     run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Keys
 
 ![12][12]
+
 **但当将路径变换为Keys/时,则不会检查路径，可顺利查询数据**
+
 ![13][13]
 
 > PS: 在发现这种问题的时候首先要确定泄露的信息是否属于可公开的如安装插件信息等，不涉及到用户的敏感数据，如果是公开的就不要提交到src了。
@@ -134,14 +138,15 @@ Drozer
 说到sql了还是安卓的那就先上一波理论：
 --------------------
 
- - Android操作系统建议使用SQLite数据库存储用户数据。SQLite数据库使用SQL语句，所以可以进行SQL注入。
- - 使用projection参数和seleciton参数可以传递一些简单的SQL注入语句到Content provider。
+- Android操作系统建议使用SQLite数据库存储用户数据。SQLite数据库使用SQL语句，所以可以进行SQL注入。
+- 使用projection参数和seleciton参数可以传递一些简单的SQL注入语句到Content provider。
 
 **如：**
+
 ![14][14]
 
 
-  **看完上述的理论之后那就知道安卓的sql和web没啥区别，那就直接上drozer工具扫描注入的命令：**
+**看完上述的理论之后那就知道安卓的sql和web没啥区别，那就直接上drozer工具扫描注入的命令：**
 
 > run scanner.provider.injection  -a APP
 
@@ -152,21 +157,21 @@ Drozer
 
 > run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --projection "'"
 
-  ![16][16]
+![16][16]
 
 
   
 
 > run app.provider.query content://com.mwr.example.sieve.DBContentProvider/Passwords/ --selection "'"
 
-  ![17][17]
+![17][17]
   
 
 > run app.provider.query
 >content://com.mwr.example.sieve.DBContentProvider/Passwords/
 > --projection "* FROM SQLITE_MASTER WHERE type='table'--"
 
-  ![18][18]
+![18][18]
 
 
   
@@ -177,7 +182,7 @@ Drozer
 
 **这样就可以看到数据库之类的了，那么下面咱在看一下如何在web下进行sql注入**
 
- - 首先在drozer内开启一下web服务：
+- 首先在drozer内开启一下web服务：
 
 > run auxiliary.webcontentresolver
 
@@ -188,25 +193,27 @@ Drozer
 
     可以看到端口是8080，如果出错的话就杀一下8080端口的进程
 
-  ![20][20]
+![20][20]
 
 
   
 
     找到目标app，然后访问，发现无法访问是因为做了模式匹配，所以Permission Denial
 
-  ![21][21]
+![21][21]
 
 
   
 
-    http://127.0.0.1:8080/query?uri=content://com.mwr.example.sieve.DBContentProvider/Keys/&projection=* 
+    http://127.0.0.1:8080/query?uri=content://com.mwr.example.sieve.DBContentProvider/Keys/&projection=*
 
-  ![22][22]
+ 
+![22][22]
 
 
-  **如果感觉手工比较繁琐的话那就直接上sqlmap**
-  ![23][23]
+**如果感觉手工比较繁琐的话那就直接上sqlmap**
+
+![23][23]
 
 
   
